@@ -6,6 +6,7 @@ module RailsI18n
       def self.rule
         lambda do |n|
           n ||= 0
+          return :other unless n.is_a?(Numeric)
           if n == 1
             :one
           elsif n == 0 || (1..19).to_a.include?(n % 100)
